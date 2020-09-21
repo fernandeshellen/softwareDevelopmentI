@@ -23,7 +23,6 @@ public class WordsCount {
         } catch (FileNotFoundException e) {
             System.out.println("ERROR to read the file. TRY AGAIN!\n" + e);
         }
-
     }
 
     public void wordsCounter(ArrayList<String> fp, String path) throws IOException {
@@ -50,7 +49,6 @@ public class WordsCount {
         System.out.println("\n\n\n\n****FREQUENCY WORD****\n");
         for (Map.Entry<String, Integer> val : map.entrySet()) {
             System.out.println("Word: " + val.getKey() + " | Frequency: " + val.getValue() + " times");
-
         }
 
         System.out.println("\n\n\n\n****SORTED BY MOST FREQUENTLY USED WORD****\n");
@@ -61,13 +59,5 @@ public class WordsCount {
             LinkedHashMap::new
     )).forEach((a, integer) -> System.out.println(String.format("Word: %s | Frequency sorted: %s times", a, integer)));
         
-        
-        // .forEach(entry -> {
-        //     for (int i = 1; i <= entry.getValue(); i++)
-        //         fp.add(entry.getKey());
-        // });
-        // System.out.println("Sorted Words in order of their frequency :");
-
-        // System.out.println(fp);
     }
 }
