@@ -33,7 +33,7 @@ public class WordsCount {
         HashMap<String, Integer> map = new HashMap<String, Integer>();
 
         while (s.hasNext()) {
-            String nextWord = s.next();
+            String nextWord = s.next().toLowerCase();
 
             nextWord = nextWord.replaceAll("[^a-zA-Z]", "");
             nextWord.toLowerCase();
