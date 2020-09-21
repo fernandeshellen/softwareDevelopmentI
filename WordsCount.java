@@ -46,7 +46,7 @@ public class WordsCount {
             }
         }
         s.close();
-        System.out.println("\n\n\n\n****FREQUENCY WORD****\n");
+        System.out.println("\n\n\n\n****WORD FREQUENCY****\n");
         for (Map.Entry<String, Integer> val : map.entrySet()) {
             System.out.println("Word: " + val.getKey() + " | Frequency: " + val.getValue() + " times");
         }
