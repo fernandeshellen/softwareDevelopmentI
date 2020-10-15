@@ -4,7 +4,6 @@ import java.io.*;
 import java.util.Collections;
 import java.util.stream.Collectors;
 
-
 public class WordsCount {
 
     public void readFile(ArrayList<String> fp, String path) {
@@ -36,7 +35,6 @@ public class WordsCount {
             String nextWord = s.next().toLowerCase();
 
             nextWord = nextWord.replaceAll("[^a-zA-Z]", "");
-            nextWord.toLowerCase();
 
             if (map.containsKey(nextWord)) {
                 int counter = map.get(nextWord) + 1;
@@ -46,18 +44,11 @@ public class WordsCount {
             }
         }
         s.close();
-        System.out.println("\n\n\n\n****WORD FREQUENCY****\n");
-        for (Map.Entry<String, Integer> val : map.entrySet()) {
-            System.out.println("Word: " + val.getKey() + " | Frequency: " + val.getValue() + " times");
-        }
 
-        System.out.println("\n\n\n\n****SORTED BY MOST FREQUENTLY USED WORD****\n");
-        map.entrySet().stream().sorted(Collections.reverseOrder(Map.Entry.comparingByValue())).collect(Collectors.toMap(
-            Map.Entry::getKey,
-            Map.Entry::getValue,
-            (e1, e2) -> e1,
-            LinkedHashMap::new
-    )).forEach((a, integer) -> System.out.println(String.format("Word: %s | Frequency sorted: %s times", a, integer)));
-        
+        System.out.println("\n****SORTED BY MOST FREQUENTLY USED WORD****\n");
+        map.entrySet().stream().sorted(Collections.reverseOrder(Map.Entry.comparingByValue())).limit(20)
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new))
+                .forEach((a, integer) -> System.out
+                        .println(String.format("Word: %s\t\t| Frequency: %s times", a, integer)));
     }
 }
